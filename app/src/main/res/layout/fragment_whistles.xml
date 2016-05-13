@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginLeft="@dimen/whistle_margin"
+    android:layout_marginRight="@dimen/whistle_margin"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/nameView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:padding="5dp"
+        android:text="@string/anony"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="@color/abc_secondary_text_material_light"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/typeView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentTop="true"
+        android:padding="3dp"
+        android:text="@string/cateogry"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColor="@color/accent_material_light" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/nameView"
+        android:layout_centerHorizontal="true"
+        android:padding="5dp"
+        android:text="@string/welcome"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <TextView
+        android:id="@+id/nsfwView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/textView"
+        android:padding="3dp"
+        android:text="@string/nsfw"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColor="#fe0101"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/timeView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignTop="@+id/nsfwView"
+        android:padding="3dp"
+        android:text="@string/date"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColor="@color/button_material_dark" />
+
+    <View
+        android:id="@+id/action_divider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@id/timeView"
+        android:background="@android:color/darker_gray" />
+</RelativeLayout>
