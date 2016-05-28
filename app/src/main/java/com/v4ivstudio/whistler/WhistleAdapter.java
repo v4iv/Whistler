@@ -6,15 +6,21 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
+import java.util.TimeZone;
 
 /**
  * Created by Vaibhav Sharma on 5/9/2016.
  **/
 public class WhistleAdapter extends RecyclerView.Adapter<WhistleAdapter.ViewHolder> {
     List<Whistle> whistles = new ArrayList<>();
-    String whistleID;
+    String whistleID, published;
+    Date cur_date, pub_date;
 
     public WhistleAdapter(List<Whistle> whistles) {
         this.whistles = whistles;
@@ -32,9 +38,14 @@ public class WhistleAdapter extends RecyclerView.Adapter<WhistleAdapter.ViewHold
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
         Whistle whistles = this.whistles.get(position);
+        // Whistle ID
         whistleID = "";
         whistleID += whistles.getId();
+
+        // Whistler
         holder.nameTextView.setText(whistles.getWhistler());
+
+        // Category
         String[] type = {"Confession", "Personal", "Family", "School", "Work", "Sexual", "Military", "Food", "Sports"};
         if (whistles.getCategory().equals("CNF"))
             holder.sectionTextView.setText(type[0].toUpperCase());
@@ -54,12 +65,28 @@ public class WhistleAdapter extends RecyclerView.Adapter<WhistleAdapter.ViewHold
             holder.sectionTextView.setText(type[7].toUpperCase());
         else if (whistles.getCategory().equals("SPT"))
             holder.sectionTextView.setText(type[8].toUpperCase());
+
+        // NSFW
         holder.textView.setText(whistles.getStatement());
         if (whistles.isNsfw())
             holder.nsfwTextView.setText(R.string.nsfw);
         else
             holder.nsfwTextView.setText("");
-        holder.timeTextView.setText(whistles.getPublished());
+
+        // Published Date
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'", Locale.US);
+        simpleDateFormat.setTimeZone(TimeZone.getTimeZone("UTC"));
+        SimpleDateFormat pubDateFormat = new SimpleDateFormat("dd-MM-yyyy", Locale.US);
+        pubDateFormat.setTimeZone(TimeZone.getTimeZone("UTC"));
+
+        try {
+            pub_date = simpleDateFormat.parse(whistles.getPublished());
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
+        published = pubDateFormat.format(pub_date);
+        holder.timeTextView.setText(published);
     }
 
     @Override

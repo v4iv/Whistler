@@ -22,6 +22,10 @@
         android:key="pref_key_about_settings"
         android:title="@string/pref_about_title">
         <Preference android:title="@string/pref_version"/>
+        <Preference android:title="@string/pref_rate" >
+            <intent android:action="android.intent.action.VIEW"
+                android:data="market://details?id=com.v4ivstudio.whistler" />
+        </Preference>
         <Preference android:title="@string/pref_v4iv_studio" />
     </PreferenceCategory>
 </PreferenceScreen>

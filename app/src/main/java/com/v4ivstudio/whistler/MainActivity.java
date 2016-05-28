@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
             mSwipeRefreshLayout.setRefreshing(true);
             new RetrieveWhistleTask().execute();
         } else {
-            Toast.makeText(getBaseContext(), "Error : Connection Unavailable", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getBaseContext(), "Error : Connection Unavailable", Toast.LENGTH_LONG).show();
             mSwipeRefreshLayout.setRefreshing(false);
         }
 
@@ -105,6 +105,11 @@ public class MainActivity extends AppCompatActivity {
         if (id == R.id.action_settings) {
             Intent settingsActivity = new Intent(this, SettingsActivity.class);
             startActivity(settingsActivity);
+            return true;
+        }
+        if (id == R.id.action_refresh) {
+            new RetrieveWhistleTask().execute();
+            mSwipeRefreshLayout.setRefreshing(true);
             return true;
         }
 
@@ -184,8 +189,6 @@ public class MainActivity extends AppCompatActivity {
     }
     // TODO Infinite Recycler View Pagination
     // TODO Recycler View OnClick
-    // TODO Like and Comments
-    // TODO ellipsize at 5 lines
     // TODO Nearby Popular Fresh and Categories Tabs
     // TODO T&C and Privacy
 }

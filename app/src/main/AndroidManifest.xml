@@ -42,6 +42,15 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.v4ivstudio.whistler.MainActivity" />
         </activity>
+        <activity
+            android:name=".ReactActivity"
+            android:label="@string/title_activity_react"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.v4ivstudio.whistler.MainActivity" />
+        </activity>
     </application>
 
 </manifest>

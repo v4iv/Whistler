@@ -21,7 +21,7 @@
     <string name="cateogry">CATEGORY</string>
     <string name="welcome">Welcome to Whistler!</string>
     <string name="date">2016-05-08T14:47:40Z</string>
-    <string name="detailText">Confess your darkest secrets...</string>
+    <string name="detailText">Confess your darkest secrets... (Max 200 characters)</string>
     <string name="whistle">New Whistle</string>
     <string name="action_whistle">Whistle</string>
 
@@ -33,6 +33,10 @@
     <string name="pref_about_title">ABOUT WHISTLER</string>
     <string name="pref_v4iv_studio">© V4iV Studio</string>
     <string name="pref_nsfw_summary">Display sensitive contents intended for adults</string>
-    <string name="pref_version">Version 0.1.5132016</string>
+    <string name="pref_version">Version 0.1.5816102</string>
+    <string name="title_activity_react">ANONYMOUS</string>
+    <string name="react">React to the confession...</string>
+    <string name="action_refresh">Refresh</string>
+    <string name="pref_rate"><![CDATA[Rate & Review]]></string>
 
 </resources>
